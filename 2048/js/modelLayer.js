@@ -73,8 +73,8 @@ function drawBox(cxt, i, j, nums){
     drawRoundRect(cxt , x, y, box_width, box_width, 5);
 
     cxt.font = numSize + "px Arial";  // 60px Arial
-    cxt.textAlign = "center"
-    cxt.textBaseline = "middle"
+    cxt.textAlign = "center";
+    cxt.textBaseline = "middle";
 
     switch (nums) {
         case 0:
@@ -83,9 +83,9 @@ function drawBox(cxt, i, j, nums){
         case 2:
             cxt.fillStyle=color_2;
             cxt.fill();
-            cxt.beginPath()
+            cxt.beginPath();
             cxt.fillStyle = color_text1;
-            cxt.fillText(nums, x + box_width/2 , y+box_width/2)
+            cxt.fillText(nums, x + box_width/2 , y+box_width/2);
             break;
         case 4:
             cxt.fillStyle = color_4;

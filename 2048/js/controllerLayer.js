@@ -98,35 +98,34 @@ document.addEventListener('touchend',function(event){
 
     if(Math.abs(daltaX) < 0.3 * documentWidth && Math.abs(daltaY) < 0.3 * documentWidth)
         return false;
-    else if(Math.abs(daltaX) > Math.abs(daltaY) && daltaX > 0.3) {
-        moveRight();
-        newBox(context);
-        isGameOver();
+
+    if(Math.abs(daltaX) >= Math.abs(daltaY)) {
+            if(daltaX >= 0){
+                if (moveRight()) {
+                    newBox(context);
+                    isGameOver();
+                }
+            }
+            else if(daltaX < 0) {
+                if (moveLeft()) {
+                    newBox(context);
+                    isGameOver();
+                }
+            }
     }
-    else if(Math.abs(daltaX) > Math.abs(daltaY) && daltaX < -0.3){
-        moveLeft();
-        newBox(context);
-        isGameOver();
-    }
-    else if(Math.abs(daltaY) > Math.abs(daltaX) && daltaY > 0.3){
-        moveDown();
-        newBox(context);
-        isGameOver();
-    }
-    else if(Math.abs(daltaY) > Math.abs(daltaX) && daltaY < -0.3){
-        moveUp();
-        newBox(context);
-        isGameOver();
-    }
-    else if(Math.abs(daltaY) == Math.abs(daltaX) && daltaX > 0.3){
-        moveRight();
-        newBox(context);
-        isGameOver();
-    }
-    else if(Math.abs(daltaY) == Math.abs(daltaX) && daltaX < -0.3){
-        moveLeft();
-        newBox(context);
-        isGameOver();
+    else if(Math.abs(daltaY) > Math.abs(daltaX)){
+            if(daltaY >= 0) {
+                if(moveDown()) {
+                    newBox(context);
+                    isGameOver();
+                }
+            }
+            else if(daltaY < 0){
+                if(moveUp()){
+                    newBox(context);
+                    isGameOver();
+                }
+            }
     }
     //任务1：实现移动端触摸逻辑
 });
@@ -303,8 +302,8 @@ function canMoveDown() {
 
 function noBlockVertical(col, row1, row2, nums) {
     //任务8：实现判断垂直方向上是否有障碍物
-    for (var j = row1 + 1; j < row2; j++) {
-        if (nums[col][j] != 0) {
+    for (var i = row1 + 1; i < row2; i++) {
+        if (nums[col][i] != 0) {
             return false;
         }
     }
