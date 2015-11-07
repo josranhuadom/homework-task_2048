@@ -99,8 +99,8 @@ document.addEventListener('touchend',function(event){
     if(Math.abs(daltaX) < 0.3 * documentWidth && Math.abs(daltaY) < 0.3 * documentWidth)
         return false;
     else if(Math.abs(daltaX) >= Math.abs(daltaY)) {
-            if(daltaX >= 0) {
-                if(moveRight()) {
+            if(daltaX >= 0){
+                if (moveRight()) {
                     newBox(context);
                     isGameOver();
                 }
