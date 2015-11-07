@@ -302,8 +302,8 @@ function canMoveDown() {
 
 function noBlockVertical(col, row1, row2, nums) {
     //任务8：实现判断垂直方向上是否有障碍物
-    for (var j = row1 + 1; j < row2; j++) {
-        if (nums[col][j] != 0) {
+    for (var i = row1 + 1; i < row2; i++) {
+        if (nums[col][i] != 0) {
             return false;
         }
     }
